@@ -64,7 +64,7 @@ Plugin 'vim-scripts/CSS-one-line--multi-line-folding'
 Plugin 'yegappan/mru'
 Plugin 'majutsushi/tagbar'
 Plugin 'jiangmiao/auto-pairs.git'
-Plugin 'juneedahamed/svnj.vim'
+"Plugin 'juneedahamed/svnj.vim'
 "Plugin 'rking/ag.vim'
 "Plugin 'benmills/vimux'
 "Plugin 'mklabs/grunt.vim'
@@ -337,8 +337,6 @@ map ,n yi"<S-Tab>o.<C-r>0 {<CR>
 
 " ,* - поиск выделенного текста в соседнем окне
 vmap ,* *<S-Tab>nzz
-
-" ,* - поиск текста из буфера обмена
 nmap ,* /<C-r>*<cr>zz
 
 " ,gg - grep-поиск в текущей папке (Grep)
@@ -349,7 +347,6 @@ nmap ,gl :grep -r "" *.less<Left><Left><Left><Left><Left><Left><Left><Left>
 
 " ,gt - grep-поиск в текущей папке .twig файлов (Grep)
 nmap ,gg :grep -r "" * --exclude-dir=".svn"<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
-
 
 " ,su - включить синтаксис underscore (Syntax Underscore)
 nmap ,su :set ft=html<cr>:set syntax=underscore_template<cr>
