@@ -65,6 +65,7 @@ Plugin 'yegappan/mru'
 Plugin 'majutsushi/tagbar'
 Plugin 'jiangmiao/auto-pairs.git'
 Plugin 'juneedahamed/svnj.vim'
+Plugin 'vim-scripts/Rename'
 "Plugin 'rking/ag.vim'
 "Plugin 'benmills/vimux'
 "Plugin 'mklabs/grunt.vim'
@@ -138,9 +139,11 @@ nmap <C-F2> :wall<cr>
 vmap <C-F2> <esc>:wall<cr>i
 imap <C-F2> <esc>:wall<cr>i
 
-" F7 - поиск vimgrep по текущей папке
-"nmap <F7> :vimgrep // *<Left><Left><Left>
-nmap <F7> :grep -r --exclude=*~ --exclude-dir=finish  "" templates<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+map <F10> :set paste<CR>
+map <F11> :set nopaste<CR>
+imap <F10> <C-O>:set paste<CR>
+imap <F11> <nop>
+set pastetoggle=<F11>
  
 " F8 - вкл/выкл перенос длинных строк
 map <F8> :set wrap!<cr>
@@ -149,7 +152,7 @@ map <F8> :set wrap!<cr>
 nmap <F9> :CSScomb<cr>
 
 " F11 - открыть во вкладке папку со сниппетами
-nmap <F11> :tabe C:\Program\ Files\vim\vimfiles\snippets\<cr>
+"nmap <F11> :tabe C:\Program\ Files\vim\vimfiles\snippets\<cr>
 
 " Shift-F12 - обозреватель файлов:set directory=$HOME/.vim/swapfiles//
 map <S-F12> :Vex z: <cr><C-W>20\|
