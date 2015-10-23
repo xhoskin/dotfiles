@@ -9,7 +9,7 @@ else
 endif
 
 colors slate
-lan mes en_US.utf8
+"lan mes en_US.utf8
 
 " для работы в tmux
 set ttytype=xterm
@@ -19,8 +19,8 @@ set nobackup
 set nowritebackup  
 set noswapfile     
 
-set autowrite
-set autowriteall
+"set autowrite
+"set autowriteall
 
 " мышка в терминале
 set mouse=a
@@ -41,6 +41,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'JulesWang/css.vim'
 Plugin 'hail2u/vim-css3-syntax.git'
 Plugin 'groenewege/vim-less.git'
+Plugin 'tpope/vim-haml'
 "Plugin 'skammer/vim-css-color.git'
 
 Plugin 'digitaltoad/vim-jade'
@@ -200,6 +201,9 @@ set noswapfile
 "подсвечивать текущую строку
 "set cursorline
 
+"искать файлы в этих директориях при переходе по gf
+set path=.,/usr/include,,/home/ivanov/projects/tr4/src/Tradeins/CustomBundle/Resources/public,/home/ivanov/projects/tr4/src/Tradeins/CustomBundle/Resources/public/Common/stylesheets,
+
 "сохранять бэкапы в домашнюю папку
 set backupdir=$HOME\.vim\\
 
@@ -340,6 +344,8 @@ map ,n yi"<S-Tab>o.<C-r>0 {<CR>
 
 " ,* - поиск выделенного текста в соседнем окне
 vmap ,* *<S-Tab>nzz
+
+" ,* - поиск текста из буфера обмена
 nmap ,* /<C-r>*<cr>zz
 
 " ,gg - grep-поиск в текущей папке (Grep)
@@ -362,6 +368,12 @@ nmap ,e :Ex<cr>
 
 " ,sh - открыть консоль в текущей папке
 nmap ,sh :!start bash --login -i<cr>
+
+" ,tt - отступы строк с помощью табов
+nmap ,tt :set noexpandtab<cr>
+
+" ,ts - отступы строк с помощью пробелов
+nmap ,ts :set expandtab<cr>
 
 " ,cd - сделать текущей папкой папку открытого файла
 nmap ,cd :lcd %:p:h<cr>
