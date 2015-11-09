@@ -2,18 +2,25 @@ if has("terminfo")
     let &t_Co=16
     let &t_AB="\<Esc>[%?%p1%{8}%<%t%p1%{40}%+%e%p1%{92}%+%;%dm"
     let &t_AF="\<Esc>[%?%p1%{8}%<%t%p1%{30}%+%e%p1%{82}%+%;%dm"
+
+    " для работы в tmux
+    set ttytype=xterm
+    set term=xterm
+
+    " мышка в терминале
+    set mouse=a
 else
     let &t_Co=16
     let &t_Sf="\<Esc>[3%dm"
     let &t_Sb="\<Esc>[4%dm"
 endif
 
-colors slate
+if has("terminfo")
+    colors slate
+else
+    colors desert
+endif
 "lan mes en_US.utf8
-
-" для работы в tmux
-set ttytype=xterm
-set term=xterm
 
 set nobackup       
 set nowritebackup  
@@ -21,9 +28,6 @@ set noswapfile
 
 "set autowrite
 "set autowriteall
-
-" мышка в терминале
-set mouse=a
 
 "
 " == Плагины
@@ -430,4 +434,3 @@ nmap cir ?[{<Char-0x7c><Char-0x7c>]<CR>wc/;/e<CR>
 "TO-DO что такое git-grep
 "TO-DO ack
 "TO-DO попробовать https://github.com/mozilla/doctorjs
-
