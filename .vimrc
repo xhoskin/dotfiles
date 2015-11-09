@@ -70,10 +70,12 @@ Plugin 'yegappan/mru'
 Plugin 'majutsushi/tagbar'
 Plugin 'jiangmiao/auto-pairs.git'
 Plugin 'vim-scripts/Rename'
+Plugin 'kien/ctrlp.vim'
 "Plugin 'juneedahamed/svnj.vim'
 "Plugin 'rking/ag.vim'
 "Plugin 'benmills/vimux'
 "Plugin 'mklabs/grunt.vim'
+
 
 "Snipmate
 Plugin 'MarcWeber/vim-addon-mw-utils'
