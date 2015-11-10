@@ -293,7 +293,9 @@ autocmd FileType html let b:surround_63 = "<? \r ?>"
 :set suffixesadd+=.php,.less,.css
 
 " используем unix-grep вместо windows-findstr
-" set grepprg=\"$VIMRUNTIME\grep\grep.exe\"\ -ni\ $*
+if has("win32")
+    set grepprg=\"$VIMRUNTIME\grep\grep.exe\"\ -ni\ $*
+endif
 set grepformat=%f:%l:%m
 
 " Start interactive EasyAlign in visual mode
