@@ -1,6 +1,4 @@
-﻿language English_United States	      	" английский язык
-
-if has("terminfo")
+﻿if has("terminfo")
     let &t_Co=16
     let &t_AB="\<Esc>[%?%p1%{8}%<%t%p1%{40}%+%e%p1%{92}%+%;%dm"
     let &t_AF="\<Esc>[%?%p1%{8}%<%t%p1%{30}%+%e%p1%{82}%+%;%dm"
@@ -12,6 +10,7 @@ if has("terminfo")
     " мышка в терминале
     set mouse=a
 else
+    language English_United States	      	" английский язык
     source $VIMRUNTIME/vimrc_example.vim
 endif
 
@@ -181,6 +180,9 @@ set expandtab
 set shiftwidth=4 
 set softtabstop=4 
 set tabstop=4
+"не переносить строки при вводе если их длина больше 78 символов
+set textwidth=0
+
 "при переключении буферов файлы не будут выгружаться из памяти
 set hidden
 
@@ -208,7 +210,7 @@ set noswapfile
 "set cursorline
 
 "искать файлы в этих директориях при переходе по gf
-set path=.,/usr/include,,/home/ivanov/projects/tr4/src/Tradeins/CustomBundle/Resources/public,/home/ivanov/projects/tr4/src/Tradeins/CustomBundle/Resources/public/Common/stylesheets,
+set path=.,/usr/include,,
 
 "сохранять бэкапы в домашнюю папку
 set backupdir=$HOME\.vim\\
@@ -243,13 +245,15 @@ autocmd BufRead,BufNewFile *.twig set filetype=html
 autocmd BufRead,BufNewFile *.less set filetype=css
 autocmd BufRead,BufNewFile *.sass set filetype=css
 
+autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldtext=CssFoldText() foldmethod=marker foldmarker={,} fdl=1 fillchars=fold:\ 
+
 " JSON
 augroup json_autocmd 
   autocmd! 
   autocmd FileType json set autoindent 
   autocmd FileType json set formatoptions=tcq2l 
-  autocmd FileType json set textwidth=78 shiftwidth=2 
-  autocmd FileType json set softtabstop=2 tabstop=8 
+  autocmd FileType json set textwidth=78 shiftwidth=4 
+  autocmd FileType json set softtabstop=4 tabstop=8 
   autocmd FileType json set expandtab 
   autocmd FileType json set foldmethod=syntax 
 augroup END 
