@@ -96,6 +96,21 @@ call vundle#end()
 filetype plugin indent on    " required!
 filetype on                  " required!
 
+"
+" == Функции
+"------------------------------------------
+
+" Возвращает css свернутый в одну строку
+function! CssFoldText()
+    let line = getline(v:foldstart)
+    let nnum = nextnonblank(v:foldstart + 1)
+    while nnum < v:foldend+1
+        let line = line . " " . substitute(getline(nnum), "^ *", "", "g")
+        let nnum = nnum + 1
+    endwhile
+    return line
+endfunction
+
 
 
 "
