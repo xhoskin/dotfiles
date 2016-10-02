@@ -111,6 +111,19 @@ function! CssFoldText()
     return line
 endfunction
 
+" создает несуществующие папки при сохранении файла
+function! s:MkNonExDir(file, buf)
+    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+        let dir=fnamemodify(a:file, ':h')
+        if !isdirectory(dir)
+            call mkdir(dir, 'p')
+        endif
+    endif
+endfunction
+augroup BWCCreateDir
+    autocmd!
+    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+augroup END
 
 
 "
@@ -144,7 +157,8 @@ cnoremap <C-e> <End>
 inoremap <C-e> <End>
           
 " переключения между окнамии и вкладками
-map <S-Tab> <C-w>w
+nmap <Tab> <C-w>w
+nmap <S-Tab> <C-w>W
 map <C-Tab> :tabn<CR>
 map <CS-Tab> :tabp<CR>
 
@@ -225,7 +239,7 @@ set noswapfile
 "set cursorline
 
 "искать файлы в этих директориях при переходе по gf
-set path=.,/usr/include,,
+set path=.,./../../../../../../../../web/,./../vendor/,../../../../../../../corp-bundle/Tradeins/CorpBundle/Resources/public/scss/,/usr/include,,
 
 "сохранять бэкапы в домашнюю папку
 set backupdir=$HOME\.vim\\
