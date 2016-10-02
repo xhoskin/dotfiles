@@ -119,6 +119,10 @@ alias md='mkdir'
 alias mob-ua='cd ~/projects/mobidec/web/ua/ && sudo grunt dev --env=ivanov && sudo grunt watch:dev --env=ivanov '
 alias sv='sudo vim'
 
+alias trade-cc='sudo rm -rf app/cache/dev/appDevUrlGenerator.php app/cache/dev/appDevUrlMatcher.php app/cache/prod/appDevUrlGenerator.php app/cache/prod/appDevUrlMatcher.php'
+alias trade-gen-cars=tradeGenCars
+
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -138,3 +142,14 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+
+# russian language enabled
+export LANG=ru_RU.UTF-8
+
+export LC_MESSAGES=ru_RU.UTF-8
+export LC_ALL=ru_RU.UTF-8
+export LANGUAGE=ru_RU.UTF-8
+
+# make VIM a default editor
+export VISUAL=vim
+export EDITOR="$VISUAL"
